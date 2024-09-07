@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function() {
+	/* widget controller */
+	var c = this;
+	c.data.message = '';
+	c.showAnswerSelection = false;
+	c.showQuestionJSON = false;
+	c.showAll =false;
+	c.totalCorrect = 0;
+	c.totalIncorrect = 0;
+	
+	if(c.data.examID !='')
+		c.myExam = c.data.examID;
+
+	c.showExam = function(value){
+		// alert(value);
+		c.data.sys_id = value;
+		c.server.update();
+	}
+	
+	c.refreshPage = function(){
+		window.location.reload();
+		// c.server.refresh();
+	}
+
+	c.calculateResult = function(idx){
+		var question = c.data.questions[idx];
+		c.data.questions[idx].result = 'true';
+		for (var ac in c.data.questions[idx].choices){
+			if(c.data.questions[idx].choices[ac].selected !='true' &&
+				 c.data.questions[idx].choices[ac].correct =='true')
+				 c.data.questions[idx].result ='false';
+			if(c.data.questions[idx].choices[ac].selected =='true' &&
+				 c.data.questions[idx].choices[ac].correct !='true')
+				 c.data.questions[idx].result ='false';
+		}
+	}
+	
+	c.calculateAllResult = function(){
+		for (var idx=0; idx<c.data.questions.length; idx ++){
+			var question = c.data.questions[idx];
+			c.data.questions[idx].result = 'true';
+			for (var ac in c.data.questions[idx].choices){
+				if(c.data.questions[idx].choices[ac].selected !='true' &&
+					 c.data.questions[idx].choices[ac].correct =='true')
+					c.data.questions[idx].result ='false';
+				if(c.data.questions[idx].choices[ac].selected =='true' &&
+					 c.data.questions[idx].choices[ac].correct !='true')
+					c.data.questions[idx].result ='false';
+			}
+			if(c.data.questions[idx].result =='false')
+				c.totalIncorrect++;
+			if(c.data.questions[idx].result =='true')
+				c.totalCorrect++;
+		}
+	}
+	
+	c.checkboxClick = function(ans, idx) {		
+		var selection = c.data.questions[idx].selection +'';
+		if(selection.indexOf(ans) > -1){
+			c.data.questions[idx].selection = selection.replace(ans+"&&","");
+		}
+		else{
+			c.data.questions[idx].selection += ans+'&&';
+		}
+		for (var ac in c.data.questions[idx].choices){
+			if(c.data.questions[idx].choices[ac].answer == ans){
+				if(selection.indexOf(ans) > -1)
+					c.data.questions[idx].choices[ac].selected ='false';
+				else 
+					c.data.questions[idx].choices[ac].selected ='true';
+			}
+		}
+	}
+
+	c.radioboxClick = function(ans, idx) {		
+		c.data.questions[idx].selection = ans;
+		for (var ac in c.data.questions[idx].choices){
+			if(c.data.questions[idx].choices[ac].answer == ans)
+				c.data.questions[idx].choices[ac].selected ='true';
+			else 
+				c.data.questions[idx].choices[ac].selected ='false';
+		}
+	}
+
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.pbody{
+  padding: 10px 10px 10px 10px;
+  margin-left:20px;
+}
+
+.psection{
+  padding: 10px 10px 10px 10px;
+  font-size:15px;
+}
+
+.pexplain{
+  margin-top: 20px;
+  padding: 10px 10px 10px 10px;
+  border-color: green;
+  border-style: solid;
+  border-width:2px;
+  background-color: #f7fcf5;
+  font-style: bold;
+  font-size:16px;
+}
+
+.panel{
+  border-width: 5px;
+}
+
+.correct{
+  font-weight:bold;
+  text-align: center;
+  margin-top:20px;
+  height: 24px;
+  width: 180px;
+  background-color: green;
+  color: white;
+}
+.incorrect{
+  font-weight:bold;
+  margin-top:20px;
+  text-align: center;
+  height: 24px;
+  width: 180px;
+  background-color: red;
+  color: white;
+}
+
+div{
+  font-size: 15px;
+  padding: 1px 1px 1px 1px;
+}
+
+span{
+  padding: 2px 5px 2px 5px;
+}
+</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>nowtest</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>NowTest</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+	
+	if (input) {
+		data.table = input.table;
+		data.sys_id = input.sys_id;
+	} else {
+		data.table = $sp.getParameter('table') || $sp.getParameter('t') || options.table || 'x_380417_now_certi_question';
+		data.sys_id = $sp.getParameter('exam_id') || $sp.getParameter('eid') || options.exam_id || '02e11001c3141a50ec683e1d050131a4';
+	}
+
+	if ((!data.table) || (!data.sys_id)) {
+		data.invalid_table = true;
+		data.table_label = "";
+		return;
+	}
+	
+	var grExam = new GlideRecord('x_380417_now_certi_exam');
+	grExam.orderBy('number');
+	grExam.addQuery('active','true');
+	grExam.query();
+	exams = [];
+	while(grExam.next()){
+		var test = {};
+		test.name = grExam.name +'';
+		test.value = grExam.sys_id + '';
+		exams.push(test);
+	}
+	data.exams = exams;
+	data.examID = data.sys_id; //'20ae1cd4c3181650ec683e1d0501312d';
+
+	var sys_id = data.sys_id || '';
+
+	if(sys_id != ''){
+		var questions = [];
+		var grQ = new GlideRecord(data.table);
+		grQ.addQuery('exam_id', sys_id);
+		grQ.orderBy('order');
+		grQ.query();
+		data.count = grQ.getRowCount();
+		while (grQ.next()){
+			var q = {};
+			q.selection = '';
+			q.result = '';
+			q.testName = grQ.exam_id.name + '';
+			q.question_text = grQ.getValue('question_text') || 'AAA';
+			q.option = JSON.parse(grQ.getValue('option'));
+			q.choices = formatJsonQ(grQ.getValue('option'));
+			q.optionStr = grQ.getValue('option');
+			q.explanation = grQ.getValue('explanation');
+			q.type = grQ.getValue('type');
+			q.number = grQ.getValue('number');
+			questions.push(q);
+		}
+		data.questions = questions;
+	}
+		
+		
+		function formatJsonQ(qOptions){
+			var ansOptions = JSON.parse(qOptions);
+			var i = 1;
+			var ansArray =[];
+			for (var k in ansOptions){
+				var optionObj = {};
+				optionObj.answer = k;
+				optionObj.correct = ansOptions[k];
+				optionObj.order = i++;
+				optionObj.selected = '';
+				ansArray.push(optionObj);
+			}
+			return ansArray;
+		}
+	
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>eycliao@gmail.com</sys_created_by>
+        <sys_created_on>2024-08-24 12:48:21</sys_created_on>
+        <sys_id>41a3edd4c35c1650ec683e1d0501310b</sys_id>
+        <sys_mod_count>380</sys_mod_count>
+        <sys_name>NowTest</sys_name>
+        <sys_package display_value="Now Certification" source="x_380417_now_certi">5777d45cc3d41650ec683e1d050131e1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Now Certification">5777d45cc3d41650ec683e1d050131e1</sys_scope>
+        <sys_update_name>sp_widget_41a3edd4c35c1650ec683e1d0501310b</sys_update_name>
+        <sys_updated_by>eycliao@gmail.com</sys_updated_by>
+        <sys_updated_on>2024-09-03 13:15:44</sys_updated_on>
+        <template><![CDATA[<div>
+  <h3>
+    {{data.questions[0].testName}}
+  </h3>
+  
+  <div> 
+    <table width=500px>
+      <tr><td width=120px; style="font-size:17px; font-weight:bold"> &nbsp; Practice Test:</td>
+    <td>
+    <select ng-model="c.myExam" ng-options="opt.value as opt.name for opt in c.data.exams"
+            class="form-control" ng-change="c.showExam(c.myExam)">
+      <option value="">-- Select Practice Test --</option>
+    </select>
+      </td></tr>
+    </table>
+  </div>
+  <hr>
+  <button ng-click="c.showAll=true; c.calculateAllResult()" ng-init="count=0">Show All Results</button> &nbsp; &nbsp;
+  <button ng-click="c.refreshPage()" ng-init="count=0">Reload page</button>
+  <hr>
+  <div ng-if="c.showAll">
+    <span class="correct">Total Correct: {{c.totalCorrect}} </span>&nbsp; &nbsp; 
+    <span class="incorrect">Total Incorrect: {{c.totalIncorrect}} </span>
+  </div>
+  <hr>
+  <div class="panel panel-default b" ng-repeat = "q in data.questions;">
+    <div class="panel-heading">
+      <h3 class="panel-title">
+        <b>Question {{$index+1}}</b><br><br>{{::q.question_text}}
+      </h3>
+    </div>
+    <div class="pbody">
+      <button ng-click="count=count+1; c.calculateResult($index)" ng-init="count=0">Check Answer</button>
+      <div ng-if="count%2==1 || c.showAll" class="psection">
+        <div ng-if="c.showQuestionJSON">{{q.choices}}</div>
+        <div class="correct" ng-if="q.result=='true'"> Correct </div>
+        <div class="incorrect" ng-if="q.result=='false'"> Incorrect </div>
+      </div>
+      
+      <!-- div class="psection" ng-if="q.type=='multiple choice'">
+        <div ng-repeat="(key,value) in q.option">
+          <input type="checkbox" name="check_{{q.number}}_{{$index}}"> {{key}}
+        </div>
+      </div -->
+      
+      <div class="psection" ng-if="q.type=='multiple choice'">
+        <div ng-repeat="ao in q.choices">
+          <div ng-style="((count%2==1 || c.showAll)&& ao.correct=='true') && {'border':'2px solid green'} || (count%2==1 && ao.correct=='false' && ao.selected =='true') && {'border':'2px solid red'} || {'border-style': 'none'}">
+            <input type="checkbox" name="check_{{q.number}}_{{$index}}" ng-click="c.checkboxClick(ao.answer, $parent.$index)"> {{ao.answer}}
+          </div>
+        </div>
+      </div>
+      
+      <!-- ng-click="c.display(ao.answer, $parent.$index)" -->
+      <!-- div class="psection" ng-if="q.type=='single answer'">
+        <div ng-repeat="(key,value) in q.option">
+          <input type="radio" name="radio_{{q.number}}"> {{key}}
+        </div>
+      </div -->
+      
+
+      <div class="psection" ng-if="q.type=='single answer'">
+        <div ng-repeat="ao in q.choices">
+          <div ng-style="((count%2==1 || c.showAll) && ao.correct=='true') && {'border':'2px solid green'} || (count%2==1 && ao.correct=='false' && ao.selected =='true') && {'border':'2px solid red'} || {'border-style': 'none'}">
+            <input type="radio" name="radio_{{q.number}}"  ng-click="c.radioboxClick(ao.answer, $parent.$index)"> {{ao.answer}}
+          </div>
+        </div>
+      </div>
+      
+      <div ng-if="c.showAnswerSelection">Your answer selection: {{q.selection}}</div>
+      
+      <div ng-show="count%2==1 || c.showAll" class="pexplain" ng-bind-html="::q.explanation"></div> 
+    </div>
+  </div>
+</div>]]></template>
+    </sp_widget>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>41a3edd4c35c1650ec683e1d0501310b</id>
+        <sys_created_by>eycliao@gmail.com</sys_created_by>
+        <sys_created_on>2024-08-25 02:29:34</sys_created_on>
+        <sys_id>2e9fd0acc31c5650ec683e1d050131c9</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>eycliao@gmail.com</sys_updated_by>
+        <sys_updated_on>2024-08-25 02:29:34</sys_updated_on>
+        <table>sp_widget</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+</record_update>
