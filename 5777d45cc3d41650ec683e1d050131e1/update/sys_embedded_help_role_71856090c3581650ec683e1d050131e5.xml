@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_embedded_help_role">
+    <sys_embedded_help_role action="INSERT_OR_UPDATE">
+        <order>1000</order>
+        <role display_value="x_380417_now_certi.certification_user" name="x_380417_now_certi.certification_user">71856c10c3581650ec683e1d050131ad</role>
+        <sys_class_name>sys_embedded_help_role</sys_class_name>
+        <sys_created_by>eycliao@gmail.com</sys_created_by>
+        <sys_created_on>2024-08-24 08:16:59</sys_created_on>
+        <sys_id>71856090c3581650ec683e1d050131e5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>71856c10c3581650ec683e1d050131ad</sys_name>
+        <sys_package display_value="Now Certification" source="x_380417_now_certi">5777d45cc3d41650ec683e1d050131e1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Now Certification">5777d45cc3d41650ec683e1d050131e1</sys_scope>
+        <sys_update_name>sys_embedded_help_role_71856090c3581650ec683e1d050131e5</sys_update_name>
+        <sys_updated_by>eycliao@gmail.com</sys_updated_by>
+        <sys_updated_on>2024-08-24 08:16:59</sys_updated_on>
+    </sys_embedded_help_role>
+</record_update>

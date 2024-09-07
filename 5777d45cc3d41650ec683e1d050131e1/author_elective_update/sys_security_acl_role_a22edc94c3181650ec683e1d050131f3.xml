@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl_role">
+    <sys_security_acl_role action="DELETE">
+        <sys_class_name>sys_security_acl_role</sys_class_name>
+        <sys_created_by>eycliao@gmail.com</sys_created_by>
+        <sys_created_on>2024-08-24 07:44:48</sys_created_on>
+        <sys_id>a22edc94c3181650ec683e1d050131f3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_380417_now_certi_option.x_380417_now_certi.user</sys_name>
+        <sys_package display_value="Now Certification" source="x_380417_now_certi">5777d45cc3d41650ec683e1d050131e1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Now Certification">5777d45cc3d41650ec683e1d050131e1</sys_scope>
+        <sys_security_acl display_value="x_380417_now_certi_option">622edc94c3181650ec683e1d050131f0</sys_security_acl>
+        <sys_update_name>sys_security_acl_role_a22edc94c3181650ec683e1d050131f3</sys_update_name>
+        <sys_updated_by>eycliao@gmail.com</sys_updated_by>
+        <sys_updated_on>2024-08-24 07:44:48</sys_updated_on>
+        <sys_user_role display_value="x_380417_now_certi.user" name="x_380417_now_certi.user">9938149cc3d41650ec683e1d050131cc</sys_user_role>
+    </sys_security_acl_role>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Now Certification">5777d45cc3d41650ec683e1d050131e1</application>
+        <file_path/>
+        <instance_id>f62f5bc31bb80ed4c82acb7b234bcb46</instance_id>
+        <instance_name>dev240868</instance_name>
+        <name>sys_security_acl_role_a22edc94c3181650ec683e1d050131f3</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl_role"><sys_security_acl_role action="INSERT_OR_UPDATE"><sys_class_name>sys_security_acl_role</sys_class_name><sys_created_by>eycliao@gmail.com</sys_created_by><sys_created_on>2024-08-24 07:44:48</sys_created_on><sys_id>a22edc94c3181650ec683e1d050131f3</sys_id><sys_mod_count>0</sys_mod_count><sys_name>x_380417_now_certi_option.x_380417_now_certi.user</sys_name><sys_package display_value="Now Certification" source="x_380417_now_certi">5777d45cc3d41650ec683e1d050131e1</sys_package><sys_policy/><sys_scope display_value="Now Certification">5777d45cc3d41650ec683e1d050131e1</sys_scope><sys_security_acl display_value="x_380417_now_certi_option">622edc94c3181650ec683e1d050131f0</sys_security_acl><sys_update_name>sys_security_acl_role_a22edc94c3181650ec683e1d050131f3</sys_update_name><sys_updated_by>eycliao@gmail.com</sys_updated_by><sys_updated_on>2024-08-24 07:44:48</sys_updated_on><sys_user_role display_value="x_380417_now_certi.user" name="x_380417_now_certi.user">9938149cc3d41650ec683e1d050131cc</sys_user_role></sys_security_acl_role></record_update>]]></payload>
+        <payload_hash>-639169354</payload_hash>
+        <record_name>x_380417_now_certi_option.x_380417_now_certi.user</record_name>
+        <reverted_from/>
+        <source>9377d45cc3d41650ec683e1d050131e5</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>eycliao@gmail.com</sys_created_by>
+        <sys_created_on>2024-08-24 07:44:48</sys_created_on>
+        <sys_id>622edc94c3181650ec683e1d050131f6</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1918358502f0000001</sys_recorded_at>
+        <sys_updated_by>eycliao@gmail.com</sys_updated_by>
+        <sys_updated_on>2024-08-24 07:44:48</sys_updated_on>
+        <type>Access Roles</type>
+        <update_guid>662edc94b11816507a803ca5c9a0a9f5</update_guid>
+        <update_guid_history>662edc94b11816507a803ca5c9a0a9f5:-639169354</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="x_380417_now_certi_option.x_380417_now_certi.user">c2a42c10c3581650ec683e1d0501318b</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>eycliao@gmail.com</sys_created_by>
+        <sys_created_on>2024-08-24 08:13:10</sys_created_on>
+        <sys_db_object display_value="" name="sys_security_acl_role">sys_security_acl_role</sys_db_object>
+        <sys_id>1c2f093f6ef446c289f0654e08a64b59</sys_id>
+        <sys_metadata>a22edc94c3181650ec683e1d050131f3</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_380417_now_certi_option.x_380417_now_certi.user</sys_name>
+        <sys_package display_value="Now Certification" source="x_380417_now_certi">5777d45cc3d41650ec683e1d050131e1</sys_package>
+        <sys_parent display_value="">622edc94c3181650ec683e1d050131f0</sys_parent>
+        <sys_policy/>
+        <sys_scope display_value="Now Certification">5777d45cc3d41650ec683e1d050131e1</sys_scope>
+        <sys_scope_delete display_value="">f69463f3e2074ea7a0147079f90c4259</sys_scope_delete>
+        <sys_update_name>sys_security_acl_role_a22edc94c3181650ec683e1d050131f3</sys_update_name>
+        <sys_update_version display_value="sys_security_acl_role_a22edc94c3181650ec683e1d050131f3">622edc94c3181650ec683e1d050131f6</sys_update_version>
+        <sys_updated_by>eycliao@gmail.com</sys_updated_by>
+        <sys_updated_on>2024-08-24 08:13:10</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
