@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="7abd9494c3181650ec683e1d05013147" label="Question" max_length="40" name="x_380417_now_certi_question" type="collection">
+        <element label="Order" max_length="40" name="order" type="integer"/>
+        <element label="Option" max_length="4000" name="option" type="simple_name_values"/>
+        <element attributes="edge_encryption_enabled=true" label="Question Text" max_length="400" name="question_text" type="string"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" label="Type" max_length="40" name="type" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Single Answer" sequence="300" value="single answer"/>
+                <element inactive_on_update="false" label="Multiple Choice" sequence="200" value="multiple choice"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" label="Exam ID" max_length="40" name="exam_id" reference="x_380417_now_certi_exam" reference_floats="true" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" type="string"/>
+        <element label="Explanation" max_length="8000" name="explanation" type="html"/>
+    </element>
+</database>

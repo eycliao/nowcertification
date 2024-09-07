@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="2256e4d0c3581650ec683e1d05013122" label="Certification" max_length="40" name="x_380417_now_certi_certification" type="collection">
+        <element label="Description" max_length="400" name="description" type="string"/>
+        <element label="Exam Purpose" max_length="8000" name="purpose" type="html"/>
+        <element label="Name" max_length="100" name="name" type="string"/>
+        <element label="Exam Scope" max_length="400" name="scope" type="html"/>
+    </element>
+</database>

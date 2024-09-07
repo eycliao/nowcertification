@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_ui_module">
+    <sys_ui_module action="DELETE">
+        <active>true</active>
+        <application display_value="Certification">b1856090c3581650ec683e1d050131f0</application>
+        <filter/>
+        <name>Certifications</name>
+        <order/>
+        <path/>
+        <path_relative_to_root>false</path_relative_to_root>
+        <roles>x_380417_now_certi.certification_user</roles>
+        <sys_class_name>sys_ui_module</sys_class_name>
+        <sys_created_by>eycliao@gmail.com</sys_created_by>
+        <sys_created_on>2024-08-24 08:16:59</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>7d856090c3581650ec683e1d050131f3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Certifications</sys_name>
+        <sys_package display_value="Now Certification" source="x_380417_now_certi">5777d45cc3d41650ec683e1d050131e1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Now Certification">5777d45cc3d41650ec683e1d050131e1</sys_scope>
+        <sys_update_name>sys_ui_module_7d856090c3581650ec683e1d050131f3</sys_update_name>
+        <sys_updated_by>eycliao@gmail.com</sys_updated_by>
+        <sys_updated_on>2024-08-24 08:16:59</sys_updated_on>
+        <table>x_380417_now_certi_certification</table>
+        <uncancelable>false</uncancelable>
+        <view_name/>
+    </sys_ui_module>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Now Certification">5777d45cc3d41650ec683e1d050131e1</application>
+        <file_path/>
+        <instance_id>f62f5bc31bb80ed4c82acb7b234bcb46</instance_id>
+        <instance_name>dev240868</instance_name>
+        <name>sys_ui_module_7d856090c3581650ec683e1d050131f3</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_ui_module"><sys_ui_module action="INSERT_OR_UPDATE"><active>true</active><application display_value="Certification">b1856090c3581650ec683e1d050131f0</application><filter/><name>Certifications</name><order/><path/><path_relative_to_root>false</path_relative_to_root><roles>x_380417_now_certi.certification_user</roles><sys_class_name>sys_ui_module</sys_class_name><sys_created_by>eycliao@gmail.com</sys_created_by><sys_created_on>2024-08-24 08:16:59</sys_created_on><sys_domain>global</sys_domain><sys_domain_path>/</sys_domain_path><sys_id>7d856090c3581650ec683e1d050131f3</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Certifications</sys_name><sys_package display_value="Now Certification" source="x_380417_now_certi">5777d45cc3d41650ec683e1d050131e1</sys_package><sys_policy/><sys_scope display_value="Now Certification">5777d45cc3d41650ec683e1d050131e1</sys_scope><sys_update_name>sys_ui_module_7d856090c3581650ec683e1d050131f3</sys_update_name><sys_updated_by>eycliao@gmail.com</sys_updated_by><sys_updated_on>2024-08-24 08:16:59</sys_updated_on><table>x_380417_now_certi_certification</table><uncancelable>false</uncancelable><view_name/></sys_ui_module></record_update>]]></payload>
+        <payload_hash>-762359650</payload_hash>
+        <record_name>Certifications</record_name>
+        <reverted_from/>
+        <source>9377d45cc3d41650ec683e1d050131e5</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>eycliao@gmail.com</sys_created_by>
+        <sys_created_on>2024-08-24 08:16:59</sys_created_on>
+        <sys_id>f1856090c3581650ec683e1d050131f7</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>1918375c6020000001</sys_recorded_at>
+        <sys_updated_by>eycliao@gmail.com</sys_updated_by>
+        <sys_updated_on>2024-08-24 08:16:59</sys_updated_on>
+        <type>Module</type>
+        <update_guid>f58560902a581650995ff25b888994f6</update_guid>
+        <update_guid_history>f58560902a581650995ff25b888994f6:-762359650</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>eycliao@gmail.com</sys_created_by>
+        <sys_created_on>2024-08-24 08:19:53</sys_created_on>
+        <sys_db_object display_value="" name="sys_ui_module">sys_ui_module</sys_db_object>
+        <sys_id>19d6340188014d0aa453400f3b4309c4</sys_id>
+        <sys_metadata>7d856090c3581650ec683e1d050131f3</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Certifications</sys_name>
+        <sys_package display_value="Now Certification" source="x_380417_now_certi">5777d45cc3d41650ec683e1d050131e1</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Now Certification">5777d45cc3d41650ec683e1d050131e1</sys_scope>
+        <sys_scope_delete display_value="">f69463f3e2074ea7a0147079f90c4259</sys_scope_delete>
+        <sys_update_name>sys_ui_module_7d856090c3581650ec683e1d050131f3</sys_update_name>
+        <sys_update_version display_value="sys_ui_module_7d856090c3581650ec683e1d050131f3">f1856090c3581650ec683e1d050131f7</sys_update_version>
+        <sys_updated_by>eycliao@gmail.com</sys_updated_by>
+        <sys_updated_on>2024-08-24 08:19:53</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
